@@ -1,0 +1,6 @@
+{
+  "name": "Temperature Checker",
+  "description": "একটি বাটন ক্লিক করে যেকোনো স্থানের বা আপনার বর্তমান অবস্থানের তাপমাত্রা পরিমাপ করুন।",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
