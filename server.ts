@@ -26,18 +26,18 @@ async function startServer() {
   app.post("/api/temperature", async (req, res) => {
     try {
       const { lat, lon, city } = req.body;
-      let queryLocation = "";
+      let searchQuery = "";
 
       if (lat && lon) {
-        queryLocation = `coordinates latitude ${lat}, longitude ${lon}`;
+        searchQuery = `weather today at latitude ${lat}, longitude ${lon}`;
       } else if (city) {
-        queryLocation = city;
+        searchQuery = `weather today in ${city}`;
       } else {
-        queryLocation = "Bangladesh";
+        searchQuery = "weather today in Bangladesh";
       }
 
-      const prompt = `Find the current real-time temperature and weather conditions for ${queryLocation}.
-      Return a JSON response in the following precise JSON structure:
+      const prompt = `Perform a live web search for "${searchQuery}".
+      Based on the actual live search results for today's weather at this location, return a JSON response in the following precise structure:
       {
         "temperature": "value with °C (e.g. 31°C)",
         "weather": "brief weather condition in Bengali (e.g., ঝোড়ো হাওয়া, মেঘলা, বৃষ্টি, রৌদ্রোজ্জ্বল, কুয়াশা)",
